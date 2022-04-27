@@ -18,11 +18,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('/greetings', function (Request $request) {
+# No auth required
+Route::get('/test_public', function (Request $request) {
     return 'Hello!!';
 });
 
-Route::middleware('auth:sanctum')->post('/helloworld', function (Request $request) {
+# Auth required
+Route::middleware('auth:sanctum')->post('/test_protected', function (Request $request) {
     return $request->user();
 });
